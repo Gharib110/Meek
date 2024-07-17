@@ -1,0 +1,8 @@
+test:
+  image: golang:bullseye
+  script:
+    - for folder in ./meek-*; do
+        cd $folder;
+        go test -v . && go build || exit 1;
+        cd ..;
+      done
